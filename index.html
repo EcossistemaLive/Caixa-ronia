@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Avaliação: Ronia Sousa (Caixa)</title>
+    <!-- Importação de Fontes (Guia de Estilo, Poppins e Merriweather) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;1,700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* 1. TOKENS E VARIAVEIS (Guia de Estilo V3) */
+        :root {
+            /* Paleta Principal */
+            --primary-bg: #06192a;      /* Azul Petróleo - Fundo principal */
+            --card-bg: #0A243D;         /* Azul Escuro - Fundo de cards */
+            --accent-color: #00e800;    /* Verde Vibrante - Destaques */
+            
+            /* Textos */
+            --text-primary: #ffffff;    /* Branco - Textos principais */
+            --text-muted: #cccccc;      /* Cinza Claro */
+            --text-subtle: #a0a0a0;     /* Cinza - Textos secundários e parágrafos */
+
+            /* Bordas e Efeitos */
+            --border-color: rgba(255, 255, 255, 0.1);
+            --accent-glow: 0 0 8px rgba(0, 232, 0, 0.7); /* Sombra para o verde vibrante */
+            
+            /* Fontes */
+            --font-primary: 'Poppins', sans-serif;
+            --font-secondary: 'Merriweather', serif;
+            
+            /* Espaçamento */
+            --space-sm: 1rem;   /* 16px */
+            --space-md: 2rem;   /* 32px */
+            --space-lg: 4rem;   /* 64px */
+            --space-xl: 6rem;   /* 96px */
+        }
+
+        /* RESET e ESTRUTURA GLOBAL (Guia de Estilo V3) */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            color: var(--text-subtle);
+            background-color: var(--primary-bg); /* Fallback */
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            background-attachment: fixed; /* Efeito Paralaxe obrigatório */
+            line-height: 1.6;
+            padding-top: 100px; /* Espaço para o header fixo */
+        }
+        
+        main {
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+            padding: var(--space-lg) 0;
+        }
+
+        section {
+            padding: var(--space-lg) 0;
+        }
+
+        /* 2. TIPOGRAFIA (Guia de Estilo V3) */
+        h1, h2, h3, h4 {
+            font-family: var(--font-primary);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: var(--space-sm);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: var(--space-lg);
+            text-shadow: var(--accent-glow);
+        }
+        
+        h3 {
+            font-family: var(--font-secondary);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        p {
+            margin-bottom: var(--space-sm);
+        }
+        
+        /* 3. COMPONENTE CARD PADRÃO (Guia de Estilo V3) */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: var(--space-md);
+            margin-bottom: var(--space-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .card:hover {
+            /* Efeito de elevação obrigatório */
+            transform: translateY(-5px); 
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .card:focus-visible {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 4px;
+        }
+        
+        /* Card com borda de destaque (Diagnóstico Estratégico Style) */
+        .card-accent {
+            border-left: 3px solid var(--accent-color);
+            padding-left: calc(var(--space-md) - 3px);
+        }
+
+        /* 4. LAYOUTS RESPONSIVOS */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-md);
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(450px, 100%), 1fr));
+            gap: var(--space-md);
+        }
+
+        /* Estilo para Tabela (Resumo) */
+        .summary-table table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 1rem;
+        }
+
+        .summary-table th, .summary-table td {
+            padding: var(--space-sm) 0;
+            text-align: left;
+        }
+        
+        .summary-table th {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            font-weight: 600;
+        }
+
+        .summary-table td {
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .summary-table td:first-child {
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .summary-table td:last-child {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* 5. HEADER FIXO (Guia de Estilo V3) */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: var(--space-sm) var(--space-md);
+            background-color: rgba(6, 25, 42, 0.8); /* Fundo semi-transparente */
+            backdrop-filter: blur(10px); /* Efeito blur obrigatório */
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo {
+            width: 150px;
+            height: auto;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* 6. COMPONENTE DE RECOMENDAÇÃO / CITAÇÃO (Quote Layout Style) */
+        .recommendation {
+            text-align: center;
+            background-color: var(--primary-bg);
+            border: 2px solid var(--accent-color);
+            border-radius: 12px;
+            padding: var(--space-md);
+            box-shadow: var(--accent-glow);
+            margin-top: var(--space-md);
+        }
+        
+        .recommendation h4 {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: var(--space-sm);
+            text-shadow: var(--accent-glow);
+        }
+        
+        .recommendation p {
+            font-family: var(--font-secondary);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        /* 7. BOTÃO CV (Para ser clicável) */
+        .cv-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background-color: var(--accent-color);
+            color: var(--primary-bg); 
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: var(--space-sm);
+            transition: all 0.3s ease;
+            box-shadow: var(--accent-glow);
+        }
+        
+        .cv-button:hover,
+        .cv-button:focus-visible {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 232, 0, 0.4);
+            color: #000;
+            outline: none;
+        }
+
+        /* 8. ANIMAÇÃO FADE-IN (Guia de Estilo V3) */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            opacity: 0; /* Inicia invisível */
+        }
+        
+        .visible {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO (Header Fixo) -->
+    <header>
+        <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" alt="Live Consultoria Logo" class="logo">
+        <h1>Análise: Ronia Sousa (Caixa)</h1>
+        <a href="#conclusion" class="cv-button" style="padding: 8px 15px;">
+            <i class="fa-solid fa-arrow-down"></i> Conclusão
+        </a>
+    </header>
+
+    <main>
+        
+        <!-- INTRODUÇÃO -->
+        <section id="intro" class="fade-in">
+            <h2>Relatório de Avaliação de Perfil</h2>
+            <div class="card card-accent">
+                <p><strong>Candidata:</strong> Ronia Sousa de Almeida</p>
+                <p><strong>Vaga:</strong> Operadora de Caixa</p>
+                <p>Relatório baseado na transcrição da entrevista e alinhado aos critérios de Reestruturação da Casa Goianita. A candidata será avaliada pela sua capacidade de agregar flexibilidade operacional e rigor financeiro, mitigando riscos críticos.</p>
+                
+                <a href="https://docs.google.com/document/d/1tlrFcOVoOXNStoeGti9osaIp_eSD4V45h87WJS8QQfA/edit?usp=sharing" target="_blank" class="cv-button" loading="lazy" alt="Link para o Currículo de Ronia Sousa.">
+                    <i class="fa-solid fa-file-pdf"></i> Visualizar Currículo
+                </a>
+            </div>
+        </section>
+
+        <!-- 1. MAPEAENTO DE COMPETÊNCIAS TÉCNICAS -->
+        <section id="hard-skills" class="fade-in">
+            <h2>1. Mapeamento de Competências Técnicas (Hard Skills)</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3><i class="fa-solid fa-calculator"></i> Operação de Caixa e Controle</h3>
+                    <p><strong>Evidência:</strong> Experiência em atacadão (alto volume), realizando sangrias e contagem de fundo de caixa com rigor.</p>
+                    <p><strong>Alinhamento:</strong> **Alta Aderência.** Demonstra familiaridade com procedimentos cruciais para a segurança do "Cofre" e controle de numerário na Casa Goianita.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-people-carry-box"></i> Multifuncionalidade e Vendas</h3>
+                    <p><strong>Evidência:</strong> Atuou como caixa e vendedora na frente de loja (GTO), além de auxiliar em outras funções de organização.</p>
+                    <p><strong>Alinhamento:</strong> **Excelente Aderência.** Possui o perfil "faz de tudo" exigido para o momento de reestruturação, garantindo suporte em vendas e operações de balcão.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-truck-ramp-box"></i> Logística e Sistema (ERP)</h3>
+                    <p><strong>Evidência:</strong> Experiência com recebimento de cargas e lançamento de produtos no sistema.</p>
+                    <p><strong>Alinhamento:</strong> **Boa Aderência.** Familiaridade com o fluxo de mercadorias e a adaptabilidade a novos softwares são críticas para a futura implantação do ERP.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. AVALIAÇÃO DE COMPETÊNCIAS COMPORTAMENTAIS -->
+        <section id="soft-skills" class="fade-in">
+            <h2>2. Avaliação de Competências Comportamentais (Soft Skills)</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3><i class="fa-solid fa-shield-halved"></i> Rigor, Precisão e Ética</h3>
+                    <p><strong>Rigor:</strong> Demonstra responsabilidade pessoal ao conferir o fundo de caixa "mesmo que eles falam que tem" e conhecimento sobre o risco de notas falsas.</p>
+                    <p><strong>Protocolo:</strong> Segue o protocolo de identificar e reportar discrepâncias imediatamente, sem tentar resolver sozinha.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-hand-holding-heart"></i> Resiliência e Inteligência Emocional</h3>
+                    <p><strong>Pressão:</strong> Descreve a pressão em picos de vendas como "diária" em empregos anteriores, mas mantém a calma.</p>
+                    <p><strong>Clientes:</strong> Sua técnica é "ter paciência" e não se descontrolar junto com o cliente, ideal para a reconquista de confiança pós-RJ e o público tradicional da loja.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-shuffle"></i> Adaptabilidade e Proatividade</h3>
+                    <p><strong>Aprendizado:</strong> Reconhece a diferença entre sistemas e tem confiança na capacidade de aprender o novo ERP rapidamente.</p>
+                    <p><strong>Iniciativa:</strong> Em dias calmos, saía do caixa para auxiliar em outras áreas (vendas, balcão), demonstrando a proatividade necessária para o time.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-microphone"></i> Comunicação e Atendimento</h3>
+                    <p><strong>Estilo:</strong> Comunicação clara e objetiva, com tom de voz calmo e paciente.</p>
+                    <p><strong>Observação:</strong> Vocabulário adequada na maior parte do tempo, com necessidade de algumas correções (conforme ajuste do Analista).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. ALINHAMENTO CULTURAL E FIT -->
+        <section id="cultural-fit" class="fade-in">
+            <h2>3. Alinhamento Cultural (Fit Cultural)</h2>
+            <div class="card">
+                <h3>Motivação, Colaboração e Público</h3>
+                <ul>
+                    <li><strong>Motivação:</strong> Busca por estabilidade ("carteira assinada") e desejo por nova experiência (utilidades domésticas). **Alto Fit** com o objetivo de crescimento sustentável.</li>
+                    <li><strong>Colaboração:</strong> Sua experiência multifuncional e postura paciente indicam uma alta capacidade de **colaboração** e um perfil harmonioso para o ambiente de trabalho.</li>
+                    <li><strong>Público:</strong> Demonstra entender e valorizar o público tradicional ("mais idade") da Casa Goianita, que "gosta de conversar," alinhando-se à tradição da empresa.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 4. CONCLUSÃO E RECOMENDAÇÃO -->
+        <section id="conclusion" class="fade-in">
+            <h2>4. Conclusão e Próximos Passos</h2>
+            
+            <div class="grid-2 summary-table">
+                <!-- Tabela de Resumo -->
+                <div class="card">
+                    <h3>Resumo da Avaliação Ponderada</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Critério Chave</th>
+                                <th>Avaliação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Experiência Técnica (Caixa/Financeiro)</td><td>Forte</td></tr>
+                            <tr><td>Atenção aos Detalhes (Prudência)</td><td>Forte</td></tr>
+                            <tr><td>Tolerância à Pressão/Resiliência</td><td>Excepcional</td></tr>
+                            <tr><td>Adaptabilidade/Aprendizado</td><td>Forte</td></tr>
+                            <tr><td>Alinhamento à Mudança</td><td>Alto</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Citação Final de Recomendação -->
+                <div class="recommendation">
+                    <h4>Fortemente Recomendada</h4>
+                    <p>
+                        Ronia deve ser imediatamente movida para a etapa de Teste Prático. Seu perfil multifuncional e sua estabilidade sob pressão a tornam uma candidata de alto valor para mitigar os riscos operacionais mapeados.
+                    </p>
+                    <a href="#" class="cv-button" onclick="alert('Esta ação dispararia a criação da tarefa no ClickUp.')" role="button">
+                        <i class="fa-solid fa-clipboard-list"></i> Criar Tarefa (ClickUp)
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- RODAPÉ (Guia de Estilo V3) -->
+    <footer>
+        <p style="text-align: center; color: var(--text-subtle); margin-top: var(--space-md);">
+            © 2025 Live Consultoria. Documento confidencial de análise interna.
+        </p>
+        <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-34.png" alt="Live Consultoria Logo" style="width: 100px; display: block; margin: var(--space-sm) auto; opacity: 0.7;">
+    </footer>
+
+    <!-- JAVASCRIPT: IntersectionObserver para Animação Fade-In (Guia de Estilo V3) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.fade-in');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+</body>
+</html>
