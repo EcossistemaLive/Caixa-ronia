@@ -56,7 +56,8 @@
             background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
             background-attachment: fixed; /* Efeito Paralaxe obrigatório */
             line-height: 1.6;
-            padding-top: 100px; /* Espaço para o header fixo */
+            /* [CORREÇÃO] Reduzido de 100px para 70px para caber no header fino */
+            padding-top: 70px; 
         }
         
         main {
@@ -178,7 +179,8 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: var(--space-sm) var(--space-md);
+            /* [CORREÇÃO] Reduzido para uma faixa fina */
+            padding: 10px var(--space-md);
             background-color: rgba(6, 25, 42, 0.8); /* Fundo semi-transparente */
             backdrop-filter: blur(10px); /* Efeito blur obrigatório */
             border-bottom: 1px solid var(--border-color);
@@ -189,12 +191,14 @@
         }
 
         header .logo {
-            width: 150px;
-            height: auto;
+            /* [CORREÇÃO] Altura máxima reduzida e largura automática */
+            width: auto;
+            max-height: 40px; 
         }
 
         header h1 {
-            font-size: 1.5rem;
+            /* [CORREÇÃO] Fonte reduzida para caber na faixa fina */
+            font-size: 1.1rem; 
             color: var(--accent-color);
             font-weight: 600;
             margin: 0;
@@ -272,9 +276,7 @@
     <header>
         <img src="https://raw.githubusercontent.com/Clebito2/layout/main/Logo%20live%20oficial-36.png" alt="Live Consultoria Logo" class="logo">
         <h1>Análise: Ronia Sousa (Caixa)</h1>
-        <a href="#conclusion" class="cv-button" style="padding: 8px 15px;">
-            <i class="fa-solid fa-arrow-down"></i> Conclusão
-        </a>
+        <!-- [CORREÇÃO] Botão de navegação removido do header -->
     </header>
 
     <main>
@@ -300,17 +302,17 @@
                 <div class="card">
                     <h3><i class="fa-solid fa-calculator"></i> Operação de Caixa e Controle</h3>
                     <p><strong>Evidência:</strong> Experiência em atacadão (alto volume), realizando sangrias e contagem de fundo de caixa com rigor.</p>
-                    <p><strong>Alinhamento:</strong> **Alta Aderência.** Demonstra familiaridade com procedimentos cruciais para a segurança do "Cofre" e controle de numerário na Casa Goianita.</p>
+                    <p><strong>Alinhamento:</strong> <strong>Alta Aderência.</strong> Demonstra familiaridade com procedimentos cruciais para a segurança do "Cofre" e controle de numerário na Casa Goianita.</p>
                 </div>
                 <div class="card">
                     <h3><i class="fa-solid fa-people-carry-box"></i> Multifuncionalidade e Vendas</h3>
                     <p><strong>Evidência:</strong> Atuou como caixa e vendedora na frente de loja (GTO), além de auxiliar em outras funções de organização.</p>
-                    <p><strong>Alinhamento:</strong> **Excelente Aderência.** Possui o perfil "faz de tudo" exigido para o momento de reestruturação, garantindo suporte em vendas e operações de balcão.</p>
+                    <p><strong>Alinhamento:</strong> <strong>Excelente Aderência.</strong> Possui o perfil "faz de tudo" exigido para o momento de reestruturação, garantindo suporte em vendas e operações de balcão.</p>
                 </div>
                 <div class="card">
                     <h3><i class="fa-solid fa-truck-ramp-box"></i> Logística e Sistema (ERP)</h3>
                     <p><strong>Evidência:</strong> Experiência com recebimento de cargas e lançamento de produtos no sistema.</p>
-                    <p><strong>Alinhamento:</strong> **Boa Aderência.** Familiaridade com o fluxo de mercadorias e a adaptabilidade a novos softwares são críticas para a futura implantação do ERP.</p>
+                    <p><strong>Alinhamento:</strong> <strong>Boa Aderência.</strong> Familiaridade com o fluxo de mercadorias e a adaptabilidade a novos softwares são críticas para a futura implantação do ERP.</p>
                 </div>
             </div>
         </section>
@@ -348,8 +350,8 @@
             <div class="card">
                 <h3>Motivação, Colaboração e Público</h3>
                 <ul>
-                    <li><strong>Motivação:</strong> Busca por estabilidade ("carteira assinada") e desejo por nova experiência (utilidades domésticas). **Alto Fit** com o objetivo de crescimento sustentável.</li>
-                    <li><strong>Colaboração:</strong> Sua experiência multifuncional e postura paciente indicam uma alta capacidade de **colaboração** e um perfil harmonioso para o ambiente de trabalho.</li>
+                    <li><strong>Motivação:</strong> Busca por estabilidade ("carteira assinada") e desejo por nova experiência (utilidades domésticas). <strong>Alto Fit</strong> com o objetivo de crescimento sustentável.</li>
+                    <li><strong>Colaboração:</strong> Sua experiência multifuncional e postura paciente indicam uma alta capacidade de <strong>colaboração</strong> e um perfil harmonioso para o ambiente de trabalho.</li>
                     <li><strong>Público:</strong> Demonstra entender e valorizar o público tradicional ("mais idade") da Casa Goianita, que "gosta de conversar," alinhando-se à tradição da empresa.</li>
                 </ul>
             </div>
